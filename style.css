@@ -1,0 +1,1327 @@
+/* ==========================================================================
+   CINEAI STUDIOS — DUTCH EDITORIAL DESIGN SYSTEM
+   Inspired by APC (Algemeen Pallet Centrum — apc-pallets.nl)
+   Palette: Forest Pine #042a22, Pale Sage #e3f1e0, Lime #90c685, Pure White #ffffff
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --c-dark-green: #042a22;
+    --c-mid-green: #0c473b;
+    --c-light-green: #90c685;
+    --c-pale-green: #e3f1e0;
+    --c-pale-bg: #f5f8f4;
+    --c-white: #ffffff;
+    --c-text-main: #042a22;
+    --c-text-muted: #4a635b;
+    --c-text-light: #8fa89f;
+    --c-purple-accent: #ccb4d8;
+
+    /* Borders & Lines */
+    --border-solid: 1px solid rgba(4, 42, 34, 0.14);
+    --border-dashed: 1px dashed rgba(4, 42, 34, 0.22);
+    --border-dark-solid: 1px solid rgba(255, 255, 255, 0.15);
+    --border-dark-dashed: 1px dashed rgba(255, 255, 255, 0.2);
+
+    /* Typography */
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-display: 'Space Grotesk', var(--font-main);
+
+    /* Layout */
+    --container-max: 1340px;
+    --container-pad: clamp(1.25rem, 4vw, 3rem);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --radius-round: 999px;
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--c-white);
+    color: var(--c-text-main);
+    font-family: var(--font-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+img, video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Layout Utilities */
+.apc-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+}
+
+/* Editorial Eyebrow & Titles */
+.editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.section-heading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--c-dark-green);
+}
+
+.section-lead-text {
+    font-size: 1.05rem;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+    max-width: 480px;
+}
+
+.section-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 2rem;
+    border-bottom: var(--border-dashed);
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+}
+
+/* ==========================================================================
+   STICKY FLOATING CORNER BUTTON (APC Style "Menu +")
+   ========================================================================== */
+.floating-apc-btn {
+    position: fixed;
+    top: 1.75rem;
+    right: clamp(1.25rem, 3vw, 2.5rem);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--c-dark-green);
+    color: var(--c-light-green);
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 18px rgba(4, 42, 34, 0.18);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-apc-btn:hover {
+    background-color: var(--c-mid-green);
+    color: var(--c-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(4, 42, 34, 0.28);
+}
+
+.plus-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.floating-apc-btn:hover .plus-icon {
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   TOP EDITORIAL HEADER
+   ========================================================================== */
+.apc-header {
+    border-bottom: var(--border-solid);
+    background-color: var(--c-white);
+    position: relative;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.75rem;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--c-dark-green);
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+}
+
+.brand-mark {
+    color: var(--c-dark-green);
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+.nav-item {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--c-text-main);
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.nav-item:hover {
+    color: var(--c-mid-green);
+}
+
+.header-right {
+    margin-right: 120px; /* Space for the floating button */
+}
+
+.header-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--c-dark-green);
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.header-contact-link:hover {
+    background-color: var(--c-pale-green);
+}
+
+.arrow-circle {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   HERO SECTION (DUTCH EDITORIAL ARCHITECTURAL LAYOUT)
+   ========================================================================== */
+.apc-hero {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+    background-color: var(--c-white);
+    border-bottom: var(--border-solid);
+}
+
+.hero-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 3.5rem;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: var(--border-dashed);
+}
+
+.hero-big-title {
+    font-family: var(--font-main);
+    font-size: clamp(2.8rem, 5.8vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    color: var(--c-dark-green);
+}
+
+.hero-editorial-desc {
+    font-size: 1.15rem;
+    line-height: 1.55;
+    color: var(--c-text-muted);
+    margin-bottom: 1.75rem;
+}
+
+.hero-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* APC Button Styles */
+.btn-apc-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.btn-apc-dark:hover {
+    background-color: var(--c-mid-green);
+    transform: translateY(-2px);
+}
+
+.btn-apc-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--c-dark-green);
+    border-radius: 50%;
+    color: var(--c-dark-green);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-apc-circle:hover {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    transform: translateY(-2px);
+}
+
+.btn-apc-circle-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--c-dark-green);
+    border-radius: 50%;
+    color: var(--c-dark-green);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Hero Visual Banner & Floating White Consultation Box */
+.hero-visual-container {
+    width: 100%;
+}
+
+.hero-visual-frame {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(4, 42, 34, 0.08);
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.96) contrast(1.02);
+}
+
+/* Exact Floating Card from apc-pallets.nl */
+.floating-consultation-card {
+    position: absolute;
+    bottom: 2.25rem;
+    left: 2.25rem;
+    max-width: 430px;
+    background-color: var(--c-white);
+    border-radius: var(--radius-md);
+    padding: 2rem 2.25rem;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    border: var(--border-solid);
+    z-index: 10;
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+    gap: 1rem;
+}
+
+.card-title {
+    font-family: var(--font-main);
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--c-dark-green);
+}
+
+.card-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--c-pale-green);
+    color: var(--c-dark-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.card-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--c-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.card-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quick-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-square-btn {
+    width: 42px;
+    height: 42px;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.icon-square-btn:hover {
+    background-color: var(--c-mid-green);
+    transform: translateY(-2px);
+}
+
+.card-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--c-dark-green);
+    transition: color 0.2s ease;
+}
+
+.card-link-btn:hover .btn-apc-circle-sm {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   REELS SHOWCASE (APC Curated Category Grid)
+   ========================================================================== */
+.reels-section-apc {
+    padding: 6rem 0;
+    background-color: var(--c-pale-bg);
+    border-bottom: var(--border-solid);
+}
+
+/* Category Filter Tabs with signature dot */
+.filter-tabs-apc {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-tab-apc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--c-text-muted);
+    padding: 0.5rem 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.filter-tab-apc:hover {
+    color: var(--c-dark-green);
+}
+
+.tab-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.filter-tab-apc.active {
+    color: var(--c-dark-green);
+    font-weight: 700;
+}
+
+.filter-tab-apc.active .tab-dot {
+    background-color: var(--c-dark-green);
+}
+
+/* 9:16 Exhibition Cards Grid */
+.reels-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.apc-reel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apc-reel-card:hover {
+    transform: translateY(-6px);
+}
+
+/* 9:16 Video Canvas */
+.apc-video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background-color: var(--c-white);
+    border: 1px solid rgba(4, 42, 34, 0.12);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(4, 42, 34, 0.06);
+}
+
+.reel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Placeholder View (Until user drops video into assets/videos) */
+.apc-placeholder-view {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #eef5ed 0%, #e1ebe0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.25rem 1.5rem 1.75rem;
+    text-align: center;
+    z-index: 5;
+    transition: opacity 0.3s ease;
+}
+
+.placeholder-tag {
+    background-color: var(--c-white);
+    color: var(--c-dark-green);
+    border: 1px solid rgba(4, 42, 34, 0.15);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.95rem;
+    border-radius: var(--radius-round);
+}
+
+.placeholder-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--c-white);
+    border: 1px solid rgba(4, 42, 34, 0.1);
+    box-shadow: 0 8px 24px rgba(4, 42, 34, 0.08);
+}
+
+.graphic-icon {
+    font-size: 2.6rem;
+}
+
+.placeholder-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.meta-title {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--c-dark-green);
+}
+
+.meta-sub {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    max-width: 220px;
+    line-height: 1.4;
+}
+
+.slot-pill-apc {
+    margin-top: 0.65rem;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.slot-pill-apc strong {
+    color: var(--c-light-green);
+    font-family: monospace;
+}
+
+/* Video Player UI Overlay */
+.apc-player-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 40%, transparent 60%, rgba(4, 42, 34, 0.85) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.apc-play-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.apc-play-trigger:hover {
+    background-color: var(--c-mid-green);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.apc-play-trigger .pause-symbol {
+    display: none;
+    font-size: 0.95rem;
+}
+
+.apc-play-trigger .play-symbol {
+    font-size: 1.1rem;
+    margin-left: 2px;
+}
+
+.apc-reel-card.playing .apc-play-trigger {
+    opacity: 0;
+}
+
+.apc-reel-card.playing:hover .apc-play-trigger {
+    opacity: 1;
+}
+
+.apc-reel-card.playing .apc-play-trigger .play-symbol {
+    display: none;
+}
+
+.apc-reel-card.playing .apc-play-trigger .pause-symbol {
+    display: block;
+}
+
+.apc-sound-trigger {
+    align-self: flex-end;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(4, 42, 34, 0.65);
+    color: var(--c-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+}
+
+.apc-sound-trigger .sound-on {
+    display: none;
+}
+
+.apc-sound-trigger.unmuted .sound-off {
+    display: none;
+}
+
+.apc-sound-trigger.unmuted .sound-on {
+    display: block;
+}
+
+.apc-reel-caption {
+    color: var(--c-white);
+}
+
+.author-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.caption-line {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Card Footnote (APC Pattern) */
+.card-footnote {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: var(--border-solid);
+}
+
+.pill-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    letter-spacing: 0.04em;
+}
+
+.footnote-title {
+    font-family: var(--font-main);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--c-dark-green);
+    margin-top: 0.2rem;
+}
+
+.footnote-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--c-dark-green);
+    border-radius: 50%;
+    color: var(--c-dark-green);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.footnote-circle:hover {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   DEEP FOREST GREEN SECTION — PACKAGES (APC Exact Certified Quality Section)
+   ========================================================================== */
+.apc-dark-section {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    padding: 7rem 0;
+    position: relative;
+}
+
+.dark-section-header {
+    margin-bottom: 4rem;
+}
+
+.dark-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--c-light-green);
+    margin-bottom: 0.85rem;
+}
+
+.dark-heading {
+    font-family: var(--font-main);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--c-white);
+}
+
+/* Sage Green Grid Cards */
+.apc-sage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.sage-card {
+    position: relative;
+    background-color: var(--c-light-green);
+    color: var(--c-dark-green);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sage-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.featured-sage {
+    background-color: #a4d89a;
+}
+
+.card-corner-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-round);
+}
+
+.sage-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.sage-title {
+    font-family: var(--font-main);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--c-dark-green);
+}
+
+.package-price {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--c-dark-green);
+}
+
+.package-price span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.sage-desc {
+    font-size: 0.95rem;
+    color: var(--c-dark-green);
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+    opacity: 0.9;
+}
+
+.sage-pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.sage-pill {
+    background-color: rgba(4, 42, 34, 0.12);
+    color: var(--c-dark-green);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-round);
+}
+
+.sage-card-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sage-circle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid var(--c-dark-green);
+    border-radius: 50%;
+    color: var(--c-dark-green);
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.sage-card:hover .sage-circle-btn {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   METHOD / HOW IT WORKS (APC Editorial 3-Step Accordion Layout)
+   ========================================================================== */
+.werkwijze-section {
+    padding: 6.5rem 0;
+    background-color: var(--c-white);
+    border-bottom: var(--border-solid);
+}
+
+.method-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.method-step-card {
+    background-color: var(--c-pale-bg);
+    border: var(--border-solid);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+}
+
+.method-step-card:hover {
+    background-color: var(--c-pale-green);
+    transform: translateY(-4px);
+}
+
+.step-num-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: var(--border-dashed);
+}
+
+.step-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--c-dark-green);
+}
+
+.step-icon-plus {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--c-mid-green);
+}
+
+.step-title {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--c-dark-green);
+    margin-bottom: 0.75rem;
+}
+
+.step-text {
+    font-size: 0.95rem;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.step-tag {
+    align-self: flex-start;
+    background-color: var(--c-white);
+    border: 1px solid rgba(4, 42, 34, 0.12);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--c-dark-green);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   TESTIMONIALS (Architectural Grid with Dashed Dividers)
+   ========================================================================== */
+.apc-testimonials-section {
+    padding: 6.5rem 0;
+    background-color: var(--c-white);
+    border-bottom: var(--border-solid);
+}
+
+.testimonials-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial-editorial-card {
+    border: var(--border-solid);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    background-color: var(--c-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+}
+
+.testimonial-editorial-card:hover {
+    box-shadow: 0 10px 30px rgba(4, 42, 34, 0.08);
+    transform: translateY(-4px);
+}
+
+.featured-testimonial-card {
+    background-color: var(--c-pale-green);
+    border-color: rgba(4, 42, 34, 0.25);
+}
+
+.stars-row {
+    color: var(--c-dark-green);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.25rem;
+}
+
+.review-quote-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--c-text-main);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.reviewer-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: var(--border-dashed);
+}
+
+.reviewer-avatar-sm {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.reviewer-name-text {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--c-dark-green);
+}
+
+.reviewer-studio-text {
+    font-size: 0.82rem;
+    color: var(--c-text-muted);
+}
+
+.result-metric-pill {
+    align-self: flex-start;
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-round);
+}
+
+/* ==========================================================================
+   BOTTOM CONSULTATION BANNER (APC Truck Banner Style)
+   ========================================================================== */
+.apc-consultation-banner {
+    padding: 6.5rem 0;
+    background-color: var(--c-pale-bg);
+}
+
+.consultation-frame {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(4, 42, 34, 0.1);
+}
+
+.consultation-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.floating-contact-box {
+    position: absolute;
+    bottom: 2.25rem;
+    right: 2.25rem;
+    max-width: 440px;
+    background-color: var(--c-white);
+    border-radius: var(--radius-md);
+    padding: 2.25rem;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
+    border: var(--border-solid);
+    z-index: 10;
+}
+
+/* ==========================================================================
+   EDITORIAL MULTI-COLUMN FOOTER
+   ========================================================================== */
+.apc-footer {
+    background-color: var(--c-white);
+    border-top: var(--border-solid);
+    padding: 5rem 0 3rem;
+}
+
+.footer-columns-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 3.5rem;
+    margin-bottom: 4rem;
+}
+
+.brand-col {
+    padding-right: 1.5rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-dark-green);
+    margin-bottom: 1rem;
+}
+
+.footer-brand-desc {
+    font-size: 0.95rem;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+}
+
+.footer-col-title {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--c-dark-green);
+    margin-bottom: 1.25rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-links a {
+    font-size: 0.92rem;
+    color: var(--c-text-muted);
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--c-dark-green);
+}
+
+.footer-contact-item {
+    font-size: 0.92rem;
+    color: var(--c-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact-item a:hover {
+    color: var(--c-dark-green);
+}
+
+.footer-bottom-row {
+    padding-top: 2rem;
+    border-top: var(--border-dashed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--c-dark-green);
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    margin-left: 0.5rem;
+}
+
+.footer-meta-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.footer-meta-links a {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    transition: color 0.2s ease;
+}
+
+.footer-meta-links a:hover {
+    color: var(--c-dark-green);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (DUTCH EDITORIAL ADAPTATION)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .reels-editorial-grid,
+    .apc-sage-grid,
+    .method-steps-grid,
+    .testimonials-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    .header-right {
+        margin-right: 90px;
+    }
+    .hero-big-title {
+        font-size: 2.5rem;
+    }
+    .reels-editorial-grid,
+    .apc-sage-grid,
+    .method-steps-grid,
+    .testimonials-editorial-grid {
+        grid-template-columns: 1fr;
+    }
+    .floating-consultation-card,
+    .floating-contact-box {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        box-shadow: none;
+        border-top: none;
+    }
+    .hero-visual-frame,
+    .consultation-frame {
+        height: auto;
+    }
+    .hero-bg-img,
+    .consultation-bg-img {
+        height: 260px;
+    }
+    .section-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .filter-tabs-apc {
+        gap: 0.85rem;
+    }
+    .footer-columns-grid {
+        grid-template-columns: 1fr;
+    }
+}

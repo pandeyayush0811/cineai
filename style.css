@@ -837,6 +837,13 @@ button {
 
 .featured-sage {
     background-color: #a4d89a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 2px var(--c-dark-green);
+    transform: translateY(-4px);
+}
+
+.featured-sage:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--c-dark-green);
 }
 
 .card-corner-badge {
@@ -868,16 +875,45 @@ button {
     color: var(--c-dark-green);
 }
 
+.sage-price-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.package-original-price {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: var(--c-dark-green);
+    line-height: 1.1;
+}
+
 .package-price {
     font-family: var(--font-display);
     font-size: 1.75rem;
     font-weight: 800;
     color: var(--c-dark-green);
+    line-height: 1.1;
 }
 
 .package-price span {
     font-size: 0.95rem;
     font-weight: 500;
+}
+
+.package-sub-price {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--c-dark-green);
+    background: rgba(4, 42, 34, 0.12);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-round);
+    margin-top: 0.25rem;
+    display: inline-block;
 }
 
 .sage-desc {
@@ -1246,16 +1282,239 @@ button {
     display: flex;
     align-items: center;
     gap: 1.75rem;
+    flex-wrap: wrap;
 }
 
-.footer-meta-links a {
+.footer-meta-links a,
+.footer-meta-links .legal-trigger-btn {
     font-size: 0.85rem;
     color: var(--c-text-muted);
     transition: color 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
-.footer-meta-links a:hover {
+.footer-meta-links a:hover,
+.footer-meta-links .legal-trigger-btn:hover {
     color: var(--c-dark-green);
+}
+
+/* ==========================================================================
+   LEGAL & COMPLIANCE MODAL SYSTEM (DPDP, Terms & Ethical AI)
+   ========================================================================== */
+.legal-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.legal-modal-overlay[hidden] {
+    display: none !important;
+}
+
+.legal-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(4, 42, 34, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.legal-modal-container {
+    position: relative;
+    z-index: 2;
+    background-color: var(--c-white);
+    color: var(--c-dark-green);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 760px;
+    max-height: 86vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(4, 42, 34, 0.15);
+    overflow: hidden;
+    animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.legal-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.75rem;
+    border-bottom: var(--border-solid);
+    background-color: #f7faf5;
+}
+
+.legal-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2b7a4b;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.legal-modal-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--c-dark-green);
+    margin: 0;
+}
+
+.legal-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--c-dark-green);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.legal-modal-close:hover {
+    background-color: rgba(4, 42, 34, 0.08);
+}
+
+.legal-tab-nav {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #eef5ec;
+    border-bottom: var(--border-solid);
+    overflow-x: auto;
+}
+
+.legal-tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-round);
+    cursor: pointer;
+    color: var(--c-text-muted);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.legal-tab-btn:hover {
+    color: var(--c-dark-green);
+    background-color: rgba(4, 42, 34, 0.06);
+}
+
+.legal-tab-btn.active {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
+}
+
+.legal-modal-body {
+    padding: 1.75rem;
+    overflow-y: auto;
+    flex: 1;
+    line-height: 1.6;
+}
+
+.legal-panel {
+    display: none;
+}
+
+.legal-panel.active {
+    display: block;
+}
+
+.legal-panel h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    color: var(--c-dark-green);
+}
+
+.legal-effective {
+    font-size: 0.8rem;
+    color: var(--c-text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.legal-section {
+    margin-bottom: 1.35rem;
+}
+
+.legal-section h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--c-dark-green);
+}
+
+.legal-section p {
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.legal-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.75rem;
+    border-top: var(--border-solid);
+    background-color: #f7faf5;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.legal-help-note {
+    font-size: 0.82rem;
+    color: var(--c-text-muted);
+}
+
+.legal-btn-secondary {
+    background-color: var(--c-pale-green);
+    border: 1.5px solid var(--c-dark-green);
+    color: var(--c-dark-green);
+    padding: 0.45rem 1.25rem;
+    border-radius: var(--radius-round);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.legal-btn-secondary:hover {
+    background-color: var(--c-dark-green);
+    color: var(--c-white);
 }
 
 /* ==========================================================================

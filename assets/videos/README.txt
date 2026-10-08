@@ -29,10 +29,13 @@ video file daalni hai, aur wo website par automatically live ho jayegi:
 
 ---------------------------------------------------------------------------
 4. 🩺 DOCTORS & HEALTHCARE SECTION (Folder: assets/videos/healthcare/)
+[Brand: Bhoomi Vaidyam — Ayushman Bhava (Ayurvedic Healthcare)]
 ---------------------------------------------------------------------------
-- doctor_ad1.mp4 -> [SLOT READY] Dental & Clinic Awareness Ad
-- doctor_ad2.mp4 -> [SLOT READY] Multi-Specialty Hospital Ad
-- doctor_ad3.mp4 -> [SLOT READY] Dermatology & Aesthetic Clinic Ad
+- doctor_ad1.mp4 -> [LIVE] Women's Hormonal & Menopause Ayurvedic Care Commercial
+- doctor_ad2.mp4 -> [LIVE] Child Immunity & Pediatric Ayurvedic Clinic Commercial (Indore)
+- doctor_ad3.mp4 -> [LIVE] Advanced Non-Surgical Piles Relief Commercial
+- doctor_ad4.mp4 -> [LIVE] Spine, Sciatica & Joint Pain Panchakarma Commercial
+- doctor_ad5.mp4 -> [LIVE] Holistic Ayurvedic Consultation & Wellness Commercial
 
 ---------------------------------------------------------------------------
 5. 💍 WEDDING & STUDIOS SECTION (Folder: assets/videos/wedding/)

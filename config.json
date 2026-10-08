@@ -84,14 +84,14 @@
     },
     {
       "id": "partner-4",
-      "name": "Care Dental & Wellness",
-      "handle": "Clinic Network",
-      "role": "Healthcare Awareness Commercials",
+      "name": "Bhoomi Vaidyam",
+      "handle": "@BhoomiVaidyam",
+      "role": "Ayurvedic Healthcare Commercials",
       "url": "#healthcare",
-      "badge": "High Patient Trust",
-      "icon": "🩺",
-      "highlight": false,
-      "active": false
+      "badge": "Ayurvedic Wellness",
+      "icon": "🌿",
+      "highlight": true,
+      "active": true
     },
     {
       "id": "partner-5",
@@ -108,8 +108,10 @@
   "pricing": [
     {
       "id": "single-ad",
-      "title": "Single AI Ad",
-      "price": "₹2499",
+      "title": "Single AI Reel",
+      "price": "₹2,999",
+      "originalPrice": "₹3,499",
+      "subPrice": "Single Test",
       "period": "",
       "badge": "",
       "featured": false,
@@ -117,47 +119,52 @@
       "desc": "Ideal for testing viral AI video reels on your WhatsApp Status and Instagram feed.",
       "features": [
         "1x 4K Vertical Reel (9:16)",
-        "24h Express Delivery",
         "AI Voiceover & High-Converting Script",
-        "Cinematic Sound FX"
+        "Cinematic Sound FX",
+        "48h Express Delivery"
       ],
-      "whatsappText": "Hi CineAI, I want to order the Single AI Ad package (Rs 2499)."
+      "whatsappText": "Hi CineAI, I want to order the Single AI Reel package (Rs 2,999)."
     },
     {
       "id": "viral-pack",
-      "title": "Viral Growth Pack",
-      "price": "₹4,999",
+      "title": "3-Reel Growth Pack",
+      "price": "₹6,999",
+      "originalPrice": "₹8,999",
+      "subPrice": "Only ₹2,333 / reel",
       "period": "",
-      "badge": "Most Popular",
+      "badge": "🔥 Most Popular • Save ₹2,000",
       "featured": true,
       "active": true,
-      "desc": "For ambitious businesses, schools, clinics & studios wanting consistent high-converting inquiries.",
+      "desc": "Our #1 recommended trial. High-converting 3-reel sequence to test viral hooks & boost inquiries.",
       "features": [
         "3x Custom 4K Reels",
-        "A/B Viral Hook Testing",
-        "Custom Scripts & Voiceover",
+        "Viral Hook & Script Polish Included",
+        "3 Free Cover Thumbnails (Save ₹1,500)",
+        "A/B Hook Testing",
         "Priority Production Queue",
-        "WhatsApp Lead CTAs Included"
+        "1 Free Revision per Reel"
       ],
-      "whatsappText": "Hi CineAI, I want to order the Viral Growth Pack (Rs 4,999)."
+      "whatsappText": "Hi CineAI, I want to order the 3-Reel Growth Pack (Rs 6,999)."
     },
     {
       "id": "monthly-retainer",
-      "title": "Monthly Retainer",
-      "price": "₹11,999",
+      "title": "8-Reel Monthly Retainer",
+      "price": "₹17,599",
+      "originalPrice": "₹23,999",
+      "subPrice": "Only ₹2,199 / reel • Save 27%",
       "period": "/mo",
-      "badge": "Best ROI",
+      "badge": "Best ROI • ₹2,199/Reel",
       "featured": false,
       "active": true,
-      "desc": "Complete digital ad dominance in your city. Weekly fresh commercials ready to post.",
+      "desc": "Complete digital ad dominance. 2 high-converting commercial reels delivered every week.",
       "features": [
-        "8x 4K Ads per Month",
+        "8x 4K Ads per Month (₹2,199/reel)",
         "Dedicated Creative Director",
-        "Full WhatsApp Funnel Setup",
-        "24h Revision Guarantee",
-        "Audience Analytics Review"
+        "Full Content Calendar & Trend Research",
+        "WhatsApp Lead CTAs & Funnel Setup",
+        "VIP Priority Queue & Revisions"
       ],
-      "whatsappText": "Hi CineAI, I want to discuss the Monthly Retainer package (Rs 11,999/mo)."
+      "whatsappText": "Hi CineAI, I want to discuss the 8-Reel Monthly Retainer package (Rs 17,599/mo)."
     }
   ],
   "testimonials": [
@@ -183,11 +190,11 @@
     },
     {
       "id": "default-rev-3",
-      "name": "Dr. Kunal Singhal",
-      "role": "Smile Dental & Implant Centre (Lucknow)",
-      "comment": "Apne clinic ke naye branch ke dental awareness ke liye video banwaya hai hmne. Voiceover aur visual great hai, kuch faltu over-promising nahi.",
-      "rating": 4,
-      "metric": "New Clinic OPD Walk-ins",
+      "name": "Bhoomi Vaidyam",
+      "role": "Ayurvedic Healthcare Clinic (Indore)",
+      "comment": "Hamare clinic ke patient awareness videos ke liye CineAI se reels banwayi thi. Videos se hamare Ayurvedic clinic me piles aur joint pain ke authentic OPD walk-ins kafi boost hue. Truly professional AI commercials!",
+      "rating": 5,
+      "metric": "High OPD Walk-ins",
       "featured": false,
       "active": true
     },
@@ -201,5 +208,10 @@
       "featured": false,
       "active": true
     }
-  ]
+  ],
+  "brand": {
+    "name": "cineai",
+    "tagline": "High-converting AI commercial video ads for schools, clinics, local brands, creators & photo studios.",
+    "copyright": "CineAI Studios © 2026. All Rights Reserved. Pan-India Creative Operations."
+  }
 }

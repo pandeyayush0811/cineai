@@ -8,6 +8,7 @@ function initApp() {
     initApcReelsPlayer();
     initApcFilterTabs();
     initClientReviews();
+    initLegalModal();
 }
 
 if (document.readyState === 'loading') {
@@ -156,7 +157,7 @@ function initApcFilterTabs() {
 
     const NICHE_MAP = {
         'schools': ['schools', 'school', 'education', 'edtech', 'admission', 'admissions'],
-        'healthcare': ['healthcare', 'health', 'doctors', 'doctor', 'clinic', 'clinics', 'hospital', 'dental'],
+        'healthcare': ['healthcare', 'health', 'doctors', 'doctor', 'clinic', 'clinics', 'hospital', 'dental', 'bhoomi', 'vaidyam', 'ayurveda', 'ayurvedic'],
         'agri': ['agri', 'agriculture', 'kisan', 'farming', 'crops', 'agro'],
         'creators': ['creators', 'creator', 'media', 'youtube', 'influencer', 'channel', '180k'],
         'wedding': ['wedding', 'weddings', 'studios', 'studio', 'photography', 'shoots']
@@ -657,7 +658,11 @@ function renderConfigToDom() {
                     ${hasBadge ? `<div class="card-corner-badge">${pkg.badge}</div>` : ''}
                     <div class="sage-card-top">
                         <h3 class="sage-title">${pkg.title}</h3>
-                        <span class="package-price">${pkg.price}${pkg.period ? `<span>${pkg.period}</span>` : ''}</span>
+                        <div class="sage-price-block">
+                            ${pkg.originalPrice ? `<span class="package-original-price">${pkg.originalPrice}</span>` : ''}
+                            <span class="package-price">${pkg.price}${pkg.period ? `<span>${pkg.period}</span>` : ''}</span>
+                            ${pkg.subPrice ? `<span class="package-sub-price">${pkg.subPrice}</span>` : ''}
+                        </div>
                     </div>
                     <p class="sage-desc">${pkg.desc || ''}</p>
                     <div class="sage-pill-group">
@@ -790,6 +795,80 @@ function showToast(message, icon = '✓') {
     window._cineaiToastTimer = setTimeout(() => {
         toast.classList.remove('show');
     }, 3500);
+}
+
+/* ==========================================================================
+   7. LEGAL & COMPLIANCE MODAL CONTROLLER (DPDP, Terms & Ethical AI)
+   ========================================================================== */
+function initLegalModal() {
+    const modal = document.getElementById('legalModal');
+    if (!modal) return;
+
+    const closeBtn = document.getElementById('legalModalClose');
+    const closeSecondaryBtn = document.getElementById('legalModalCloseBtn');
+    const backdrop = document.getElementById('legalModalBackdrop');
+    const tabButtons = modal.querySelectorAll('.legal-tab-btn');
+    const panels = modal.querySelectorAll('.legal-panel');
+    const triggers = document.querySelectorAll('.legal-trigger-btn');
+
+    function openModal(targetTab = 'privacy') {
+        switchTab(targetTab);
+        modal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+        modal.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+    }
+
+    function switchTab(tabId) {
+        tabButtons.forEach(btn => {
+            const isActive = btn.getAttribute('data-tab') === tabId;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach(panel => {
+            const isMatch = panel.id === `panel-${tabId}`;
+            panel.classList.toggle('active', isMatch);
+            if (isMatch) {
+                panel.removeAttribute('hidden');
+            } else {
+                panel.setAttribute('hidden', '');
+            }
+        });
+    }
+
+    // Attach click handlers to triggers in footer
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = trigger.getAttribute('data-target') || 'privacy';
+            openModal(target);
+        });
+    });
+
+    // Tab button clicks
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            if (tabId) switchTab(tabId);
+        });
+    });
+
+    // Close actions
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeSecondaryBtn) closeSecondaryBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hasAttribute('hidden')) {
+            closeModal();
+        }
+    });
 }
 
 
